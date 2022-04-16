@@ -74,7 +74,7 @@ Tab2:Button {
 
 Tab2:Button {
     Name = "Limit Fps",
-    Description = "Make Sure to turn on your executor's (Open Fps) in settings",
+    Description = "Make Sure to turn on your executor's Unlock FPS in settings (This reduces ram usage I think)",
     Callback = function()
         local MAX_FPS = 60
         local MIN_FPS = 20
