@@ -77,7 +77,7 @@ Tab2:Button {
     Description = "Make Sure to turn on your executor's (Open Fps) in settings",
     Callback = function()
         local MAX_FPS = 60
-        local MIN_FPS = 5
+        local MIN_FPS = 20
         local RENDER = true
         local UserInputService = game:GetService("UserInputService")
         local RunService = game:GetService("RunService")
