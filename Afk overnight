@@ -15,16 +15,9 @@ local Tab = GUI:Tab {
     Icon = "rbxassetid://8569322835"
 }
 
-Tab:Button {
-    Name = "Anti AFK",
-    Description = nil,
-    Callback = function()
-        local VirtualUser = game:service 'VirtualUser'
-        game:service 'Players'.LocalPlayer.Idled:connect(function()
-            VirtualUser:CaptureController()
-            VirtualUser:ClickButton2(Vector2.new())
-        end)
-    end
+local Tab2 = GUI:Tab {
+    Name = "MISC",
+    Icon = "rbxassetid://8569322835"
 }
 
 Tab:Toggle {
@@ -64,6 +57,88 @@ Tab:Toggle {
     Callback = function(state)
         getgenv().DF = state
         autoskillsDF()
+    end
+}
+
+Tab2:Button {
+    Name = "Anti AFK",
+    Description = nil,
+    Callback = function()
+        local VirtualUser = game:service 'VirtualUser'
+        game:service 'Players'.LocalPlayer.Idled:connect(function()
+            VirtualUser:CaptureController()
+            VirtualUser:ClickButton2(Vector2.new())
+        end)
+    end
+}
+
+Tab2:Button {
+    Name = "Limit Fps",
+    Description = "Make Sure to turn on your executor's (Open Fps) in settings",
+    Callback = function()
+        local MAX_FPS = 60
+        local MIN_FPS = 5
+        local RENDER = true
+        local UserInputService = game:GetService("UserInputService")
+        local RunService = game:GetService("RunService")
+        UserInputService.WindowFocused:Connect(function()
+            if RENDER then
+                RunService:Set3dRenderingEnabled(true)
+            end
+            setfpscap(MAX_FPS)
+        end)
+        UserInputService.WindowFocusReleased:Connect(function()
+            if RENDER then
+                RunService:Set3dRenderingEnabled(false)
+            end
+            setfpscap(MIN_FPS)
+        end)
+    end
+}
+
+Tab2:Button {
+    Name = "Anti Lag",
+    Description = nil,
+    Callback = function()
+        local a = game
+        local b = a.Workspace
+        local c = a.Lighting
+        local d = b.Terrain
+        d.WaterWaveSize = 0
+        d.WaterWaveSpeed = 0
+        d.WaterReflectance = 0
+        d.WaterTransparency = 0
+        c.GlobalShadows = false
+        c.FogEnd = 9e9
+        c.Brightness = 0
+        settings().Rendering.QualityLevel = "Level01"
+        for e, f in pairs(a:GetDescendants()) do
+            if f:IsA("Part") or f:IsA("Union") or f:IsA("CornerWedgePart") or f:IsA("TrussPart") then
+                f.Material = "Plastic"
+                f.Reflectance = 0
+            elseif f:IsA("Decal") or f:IsA("Texture") then
+                f.Transparency = 0
+            elseif f:IsA("ParticleEmitter") or f:IsA("Trail") then
+                f.Lifetime = NumberRange.new(0)
+            elseif f:IsA("Explosion") then
+                f.BlastPressure = 0
+                f.BlastRadius = 0
+            elseif f:IsA("Fire") or f:IsA("SpotLight") or f:IsA("Smoke") or f:IsA("Sparkles") then
+                f.Enabled = false
+            elseif f:IsA("MeshPart") then
+                f.Material = "Plastic"
+                f.Reflectance = 0
+                f.TextureID = 10385902758728957
+            end
+        end
+        for e, g in pairs(c:GetChildren()) do
+            if g:IsA("BlurEffect") or g:IsA("SunRaysEffect") or g:IsA("ColorCorrectionEffect") or g:IsA("BloomEffect") or
+                g:IsA("DepthOfFieldEffect")
+            then
+                g.Enabled = false
+            end
+        end
+        sethiddenproperty(game.Lighting, "Technology", "Compatibility")
     end
 }
 
