@@ -163,10 +163,10 @@ function autoskillsSTR()
             wait()
             local args = { [1] = "Fighting Style", [2] = "Q", [3] = CFrame.new(394.34454345703125, -31.9622802734375, -87.58611297607422) * CFrame.Angles(-2.2266271114349365, 0.8755338191986084, 2.3572094440460205), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island"):FindFirstChild("Starter island").Ground, [5] = 5 }
             game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
-            wait(.5)
+            wait(.1)
             local args = { [1] = "Fighting Style", [2] = "E", [3] = CFrame.new(394.34454345703125, -31.9622802734375, -87.58611297607422) * CFrame.Angles(-2.2266271114349365, 0.8755338191986084, 2.3572094440460205), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island"):FindFirstChild("Starter island").Ground, [5] = 5 }
             game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
-            wait(.5)
+            wait(.1)
             local args = { [1] = "Fighting Style", [2] = "R", [3] = CFrame.new(394.34454345703125, -31.9622802734375, -87.58611297607422) * CFrame.Angles(-2.2266271114349365, 0.8755338191986084, 2.3572094440460205), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island"):FindFirstChild("Starter island").Ground, [5] = 5 }
             game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
         end
@@ -179,10 +179,10 @@ function autoskillsST()
             wait()
             local args = { [1] = "Sword Style", [2] = "Q", [3] = CFrame.new(591.1741333007812, 90.63533782958984, -170.264892578125) * CFrame.Angles(-2.7085061073303223, 0.13677816092967987, 3.07863187789917), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island").Part, [5] = 5 }
             game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
-            wait(.5)
+            wait(.1)
             local args = { [1] = "Sword Style", [2] = "R", [3] = CFrame.new(591.1741333007812, 90.63533782958984, -170.264892578125) * CFrame.Angles(-2.7085061073303223, 0.13677816092967987, 3.07863187789917), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island").Part, [5] = 5 }
             game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
-            wait(.5)
+            wait(.1)
             local args = { [1] = "Sword Style", [2] = "F", [3] = CFrame.new(591.1741333007812, 90.63533782958984, -170.264892578125) * CFrame.Angles(-2.7085061073303223, 0.13677816092967987, 3.07863187789917), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island").Part, [5] = 5 }
             game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
         end
@@ -195,13 +195,13 @@ function autoskillsDF()
             wait()
             local args = { [1] = "Devil Fruit", [2] = "Q", [3] = CFrame.new(587.5723266601562, 28.32087516784668, -91.5840835571289) * CFrame.Angles(-2.2143394947052, -0.1945859044790268, -2.8892946243286133), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island"):FindFirstChild("Starter island").Ground, [5] = 5 }
             game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
-            wait(.5)
+            wait(.1)
             local args = { [1] = "Devil Fruit", [2] = "E", [3] = CFrame.new(587.5723266601562, 28.32087516784668, -91.5840835571289) * CFrame.Angles(-2.2143394947052, -0.1945859044790268, -2.8892946243286133), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island"):FindFirstChild("Starter island").Ground, [5] = 5 }
             game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
-            wait(.5)
+            wait(.1)
             local args = { [1] = "Devil Fruit", [2] = "R", [3] = CFrame.new(587.5723266601562, 28.32087516784668, -91.5840835571289) * CFrame.Angles(-2.2143394947052, -0.1945859044790268, -2.8892946243286133), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island"):FindFirstChild("Starter island").Ground, [5] = 5 }
             game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
-            wait(.5)
+            wait(.1)
             local args = { [1] = "Devil Fruit", [2] = "F", [3] = CFrame.new(587.5723266601562, 28.32087516784668, -91.5840835571289) * CFrame.Angles(-2.2143394947052, -0.1945859044790268, -2.8892946243286133), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island"):FindFirstChild("Starter island").Ground, [5] = 5 }
             game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
         end
