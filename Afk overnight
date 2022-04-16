@@ -1,0 +1,146 @@
+getgenv().a = false;
+getgenv().STR = false;
+getgenv().ST = false;
+getgenv().DF = false;
+
+local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
+local GUI = Mercury:Create {
+    Name = "Mercury",
+    Size = UDim2.fromOffset(600, 400),
+    Theme = Mercury.Themes.Dark,
+    Link = "MACRO"
+}
+local Tab = GUI:Tab {
+    Name = "Auto Skills",
+    Icon = "rbxassetid://8569322835"
+}
+
+Tab:Button {
+    Name = "Anti AFK",
+    Description = nil,
+    Callback = function()
+        local VirtualUser = game:service 'VirtualUser'
+        game:service 'Players'.LocalPlayer.Idled:connect(function()
+            VirtualUser:CaptureController()
+            VirtualUser:ClickButton2(Vector2.new())
+        end)
+    end
+}
+
+Tab:Toggle {
+    Name = "Ok",
+    StartingState = false,
+    Description = "Turn this on so you won't get flung by your own skills",
+    Callback = function(state)
+        getgenv().a = state
+        Macro()
+    end
+}
+
+Tab:Toggle {
+    Name = "Strength",
+    StartingState = false,
+    Description = nil,
+    Callback = function(state)
+        getgenv().STR = state
+        autoskillsSTR()
+    end
+}
+
+Tab:Toggle {
+    Name = "Sword Style",
+    StartingState = false,
+    Description = nil,
+    Callback = function(state)
+        getgenv().ST = state
+        autoskillsST()
+    end
+}
+
+Tab:Toggle {
+    Name = "Devil Fruit",
+    StartingState = false,
+    Description = nil,
+    Callback = function(state)
+        getgenv().DF = state
+        autoskillsDF()
+    end
+}
+
+local CFrameEnd = CFrame.new(590.895569, 93.7934113, -179.322815, -0.0199144557, -4.62146055e-08, 0.999801695, -1.5908304e-08, 1, 4.59069014e-08, -0.999801695, -1.49909383e-08, -0.0199144557)
+local Time = 2
+local tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), { CFrame = CFrameEnd })
+function Macro()
+    spawn(function()
+        while a do
+            wait()
+            tween:Play()
+            tween.Completed:Wait()
+        end
+    end)
+end
+
+function autoskillsSTR()
+    spawn(function()
+        while STR do
+            wait()
+            local args = { [1] = "Fighting Style", [2] = "Q", [3] = CFrame.new(394.34454345703125, -31.9622802734375, -87.58611297607422) * CFrame.Angles(-2.2266271114349365, 0.8755338191986084, 2.3572094440460205), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island"):FindFirstChild("Starter island").Ground, [5] = 5 }
+            game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
+            wait(.5)
+            local args = { [1] = "Fighting Style", [2] = "E", [3] = CFrame.new(394.34454345703125, -31.9622802734375, -87.58611297607422) * CFrame.Angles(-2.2266271114349365, 0.8755338191986084, 2.3572094440460205), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island"):FindFirstChild("Starter island").Ground, [5] = 5 }
+            game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
+            wait(.5)
+            local args = { [1] = "Fighting Style", [2] = "R", [3] = CFrame.new(394.34454345703125, -31.9622802734375, -87.58611297607422) * CFrame.Angles(-2.2266271114349365, 0.8755338191986084, 2.3572094440460205), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island"):FindFirstChild("Starter island").Ground, [5] = 5 }
+            game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
+        end
+    end)
+end
+
+function autoskillsST()
+    spawn(function()
+        while ST do
+            wait()
+            local args = { [1] = "Sword Style", [2] = "Q", [3] = CFrame.new(591.1741333007812, 90.63533782958984, -170.264892578125) * CFrame.Angles(-2.7085061073303223, 0.13677816092967987, 3.07863187789917), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island").Part, [5] = 5 }
+            game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
+            wait(.5)
+            local args = { [1] = "Sword Style", [2] = "R", [3] = CFrame.new(591.1741333007812, 90.63533782958984, -170.264892578125) * CFrame.Angles(-2.7085061073303223, 0.13677816092967987, 3.07863187789917), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island").Part, [5] = 5 }
+            game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
+            wait(.5)
+            local args = { [1] = "Sword Style", [2] = "F", [3] = CFrame.new(591.1741333007812, 90.63533782958984, -170.264892578125) * CFrame.Angles(-2.7085061073303223, 0.13677816092967987, 3.07863187789917), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island").Part, [5] = 5 }
+            game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
+        end
+    end)
+end
+
+function autoskillsDF()
+    spawn(function()
+        while DF do
+            wait()
+            local args = { [1] = "Devil Fruit", [2] = "Q", [3] = CFrame.new(587.5723266601562, 28.32087516784668, -91.5840835571289) * CFrame.Angles(-2.2143394947052, -0.1945859044790268, -2.8892946243286133), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island"):FindFirstChild("Starter island").Ground, [5] = 5 }
+            game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
+            wait(.5)
+            local args = { [1] = "Devil Fruit", [2] = "E", [3] = CFrame.new(587.5723266601562, 28.32087516784668, -91.5840835571289) * CFrame.Angles(-2.2143394947052, -0.1945859044790268, -2.8892946243286133), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island"):FindFirstChild("Starter island").Ground, [5] = 5 }
+            game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
+            wait(.5)
+            local args = { [1] = "Devil Fruit", [2] = "R", [3] = CFrame.new(587.5723266601562, 28.32087516784668, -91.5840835571289) * CFrame.Angles(-2.2143394947052, -0.1945859044790268, -2.8892946243286133), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island"):FindFirstChild("Starter island").Ground, [5] = 5 }
+            game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
+            wait(.5)
+            local args = { [1] = "Devil Fruit", [2] = "F", [3] = CFrame.new(587.5723266601562, 28.32087516784668, -91.5840835571289) * CFrame.Angles(-2.2143394947052, -0.1945859044790268, -2.8892946243286133), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island"):FindFirstChild("Starter island").Ground, [5] = 5 }
+            game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
+        end
+    end)
+end
+
+GUI:Notification {
+    Title = "Note",
+    Text = "Make Sure to turn your Sword and Melee Haki before macro'ing",
+    Duration = 60,
+    Callback = function() end
+}
+
+GUI:Credit {
+    Name = "Nevertrust12",
+    Description = "Created the script",
+    V3rm = "",
+    Discord = "! Sayu Ogiwara.#0776"
+}
