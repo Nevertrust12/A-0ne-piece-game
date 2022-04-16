@@ -211,7 +211,7 @@ end
 GUI:Notification {
     Title = "Note",
     Text = "Make Sure to turn your Sword and Melee Haki before macro'ing",
-    Duration = 60,
+    Duration = 150,
     Callback = function() end
 }
 
