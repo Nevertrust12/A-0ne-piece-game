@@ -2,6 +2,7 @@ getgenv().a = false;
 getgenv().STR = false;
 getgenv().ST = false;
 getgenv().DF = false;
+getgenv().AD = false;
 
 local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
 local GUI = Mercury:Create {
@@ -57,6 +58,22 @@ Tab:Toggle {
     Callback = function(state)
         getgenv().DF = state
         autoskillsDF()
+    end
+}
+
+Tab:Toggle {
+    Name = "Auto Drown",
+    StartingState = false,
+    Description = "Set Spawn into Starter Island for less lag",
+    Callback = function(state)
+        getgenv().AD = state
+        NC()
+        spawn(function()
+            while AD do
+                wait()
+                Tp()
+            end
+        end)
     end
 }
 
@@ -205,6 +222,28 @@ function autoskillsDF()
             local args = { [1] = "Devil Fruit", [2] = "F", [3] = CFrame.new(587.5723266601562, 28.32087516784668, -91.5840835571289) * CFrame.Angles(-2.2143394947052, -0.1945859044790268, -2.8892946243286133), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island"):FindFirstChild("Starter island").Ground, [5] = 5 }
             game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
         end
+    end)
+end
+
+function NC()
+    spawn(function()
+        _G.conn = game:GetService("RunService").Stepped:Connect(function()
+            for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                if v:IsA("BasePart") then
+                    if AD == true then
+                        v.CanCollide = false
+                    else _G.conn:Disconnect()
+                    end
+                end
+            end
+        end)
+    end)
+end
+
+function Tp()
+    spawn(function()
+        wait()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(351.590546, -111.549561, -171.042206, -0.963734388, 0.0743087009, 0.256308973, 1.74448924e-05, 0.960467637, -0.278391719, -0.266863376, -0.268291175, -0.925636947)
     end)
 end
 
