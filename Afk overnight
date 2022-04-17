@@ -9,7 +9,7 @@ getgenv().PH = false;
 
 local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
 local GUI = Mercury:Create {
-    Name = "Mercury",
+    Name = "Stats Farm",
     Size = UDim2.fromOffset(600, 400),
     Theme = Mercury.Themes.Dark,
     Link = "MACRO"
@@ -21,8 +21,9 @@ local Tab = GUI:Tab {
 
 local Tab2 = GUI:Tab {
     Name = "MISC",
-    Icon = "rbxassetid://8569322835"
+    Icon = "rbxassetid://6034996695"
 }
+
 
 Tab:Toggle {
     Name = "Ok",
@@ -173,6 +174,25 @@ Tab2:Button {
         sethiddenproperty(game.Lighting, "Technology", "Compatibility")
     end
 }
+
+Tab2:Button({
+    Name = "Remove DF",
+    Callback = function()
+        GUI:prompt {
+            Followup = true,
+            Title = "Requires 5M Beli",
+            Text = "Are you sure?",
+            Buttons = {
+                Yes = function()
+                    game:GetService("ReplicatedStorage").Remotes.removedf:FireServer()
+                end,
+                No = function()
+                    print("Cancelled + Ratioed")
+                end
+            }
+        }
+    end,
+})
 
 local CFrameEnd = CFrame.new(590.895569, 93.7934113, -179.322815, -0.0199144557, -4.62146055e-08, 0.999801695, -1.5908304e-08, 1, 4.59069014e-08, -0.999801695, -1.49909383e-08, -0.0199144557)
 local Time = 2
