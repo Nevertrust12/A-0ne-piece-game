@@ -3,6 +3,7 @@ getgenv().STR = false;
 getgenv().ST = false;
 getgenv().DF = false;
 getgenv().AD = false;
+getgenv().PH = false;
 
 local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
 local GUI = Mercury:Create {
@@ -74,6 +75,16 @@ Tab:Toggle {
                 Tp()
             end
         end)
+    end
+}
+
+Tab:Toggle {
+    Name = "PhoenixV2 Auto Heal",
+    StartingState = false,
+    Description = "Only use this when doing auto Drown",
+    Callback = function(state)
+        getgenv().PH = state
+        Ph()
     end
 }
 
@@ -244,6 +255,16 @@ function Tp()
     spawn(function()
         wait()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(351.590546, -111.549561, -171.042206, -0.963734388, 0.0743087009, 0.256308973, 1.74448924e-05, 0.960467637, -0.278391719, -0.266863376, -0.268291175, -0.925636947)
+    end)
+end
+
+function Ph()
+    spawn(function()
+        while PH do
+            wait()
+            local args = { [1] = "Devil Fruit", [2] = "R", [3] = CFrame.new(280.4892578125, -53.645267486572266, -170.7805633544922) * CFrame.Angles(-0.900900661945343, -0.46319302916526794, -0.5135965347290039), [4] = workspace.Map.Islands:FindFirstChild("Starter Island").Model:FindFirstChild("Starter island"):FindFirstChild("Starter island").Part, [5] = 5 }
+            game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(args))
+        end
     end)
 end
 
